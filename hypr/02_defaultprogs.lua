@@ -1,0 +1,6 @@
+terminal = "kitty"
+fileManager = "dolphin"
+menu = "wofi --show drun"
+browser = "vivaldi"
+editor = "helix"
+lock = "hyprlock -q"

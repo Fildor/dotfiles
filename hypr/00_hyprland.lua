@@ -1,0 +1,8 @@
+require("monitors")
+require("defaultprogs")
+require("autostart")
+require("environment")
+require("lookandfeel")
+require("misc")
+require("input")
+require("keybindings")
