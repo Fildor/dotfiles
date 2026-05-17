@@ -3,8 +3,7 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 -- Meine persönlichen Bindings
 -- TODO: scripte umstellen auf lua
 require ("notifyTime")
--- hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("~/.local/bin/notifyTime.sh"))
-hl.bind(mainMod .. " + T", notifyTime )
+hl.bind(mainMod .. " + T", notifyTime)
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("~/.local/bin/notifyNetworks.sh"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("~/.local/bin/notifyBattery.sh"))
 hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd(browser))
@@ -48,20 +47,20 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for Volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", function ()
-    os.execute("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")
-    os.execute("~/.local/bin/notifyVolume.sh")
+    hl.dispatch(hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'))
+    hl.dispatch(hl.dsp.exec_cmd('~/.local/bin/notifyVolume.sh'))
   end,
   { locked = true, repeating = true }
 )
 hl.bind("XF86AudioLowerVolume", function()
-    os.execute("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
-    os.execute("~/.local/bin/notifyVolume.sh")
+    hl.dispatch(hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
+    hl.dispatch(hl.dsp.exec_cmd("~/.local/bin/notifyVolume.sh"))
   end,
   { locked = true, repeating = true }
 )
 hl.bind("XF86AudioMute", function()
-  os.execute("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
-  os.execute("~/.local/bin/notifyVolume.sh")
+  hl.dispatch(hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
+  hl.dispatch(hl.dsp.exec_cmd("~/.local/bin/notifyVolume.sh"))
   end,
   { locked = true, repeating = true }
 )
