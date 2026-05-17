@@ -47,9 +47,10 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for Volume and LCD brightness
+--require("notifyVolume")
 hl.bind("XF86AudioRaiseVolume", function ()
     hl.dispatch(hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'))
-    hl.dispatch(hl.dsp.exec_cmd('~/.local/bin/notifyVolume.sh'))
+    hl.dispatch(hl.dsp.exec_cmd("~/.local/bin/notifyVolume.sh"))
   end,
   { locked = true, repeating = true }
 )
