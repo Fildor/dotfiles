@@ -5,9 +5,9 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 require ("notifyTime")
 hl.bind(mainMod .. " + T", notifyTime)
 require ("notifyNetworks")
--- hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("~/.local/bin/notifyNetworks.sh"))
 hl.bind(mainMod .. " + N", notifyNetworks)
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("~/.local/bin/notifyBattery.sh"))
+require ("notifyBattery")
+hl.bind(mainMod .. " + B", notifyBattery)
 hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd(fileManager))
 
