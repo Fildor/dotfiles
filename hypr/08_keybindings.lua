@@ -12,9 +12,8 @@ hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd(fileManager))
 
 -- Example Bindings ...
-hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("kitty"))--terminal))
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("wofi --show drun"))--menu))
--- hl.bind(mainMod .. " + R", hl.notification.create({text="TEST", duration=2000}))
+hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(lock))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
