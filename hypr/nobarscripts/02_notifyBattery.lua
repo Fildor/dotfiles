@@ -38,11 +38,6 @@ elseif status == "Full," then
   symbol_var = "-charged"
 end
 
--- dunstify -h string:x-dunst-stack-tag:battery \
---  -i battery-${level_sym}${symbol_var}-symbolic \
---  -h int:value:${level_num} \
---  "Battery" "$acpi_str"
-
 local cmd = 'dunstify -h string:x-dunst-stack-tag:battery \z
 -i battery-' .. level_sym .. symbol_var .. '-symbolic \z
 -h int:value:' .. level_num .. '\z
