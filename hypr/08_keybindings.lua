@@ -4,7 +4,9 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 -- TODO: scripte umstellen auf lua
 require ("notifyTime")
 hl.bind(mainMod .. " + T", notifyTime)
-hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("~/.local/bin/notifyNetworks.sh"))
+require ("notifyNetworks")
+-- hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("~/.local/bin/notifyNetworks.sh"))
+hl.bind(mainMod .. " + N", notifyNetworks)
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("~/.local/bin/notifyBattery.sh"))
 hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd(fileManager))
