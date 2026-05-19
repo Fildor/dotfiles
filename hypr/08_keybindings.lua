@@ -2,11 +2,11 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Meine persönlichen Bindings
 -- TODO: scripte umstellen auf lua
-require ("notifyTime")
+require ("notifications.time")
 hl.bind(mainMod .. " + T", notifyTime)
-require ("notifyNetworks")
+require ("notifications.networks")
 hl.bind(mainMod .. " + N", notifyNetworks)
-require ("notifyBattery")
+require ("notifications.battery")
 hl.bind(mainMod .. " + B", notifyBattery)
 hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd(fileManager))
@@ -47,22 +47,25 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for Volume and LCD brightness
---require("notifyVolume")
+require("notifications.volume")
 hl.bind("XF86AudioRaiseVolume", function ()
     hl.dispatch(hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'))
-    hl.dispatch(hl.dsp.exec_cmd("~/.local/bin/notifyVolume.sh"))
+    -- hl.dispatch(hl.dsp.exec_cmd("~/.local/bin/notifyVolume.sh"))
+    notifyVolume()
   end,
   { locked = true, repeating = true }
 )
 hl.bind("XF86AudioLowerVolume", function()
     hl.dispatch(hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
-    hl.dispatch(hl.dsp.exec_cmd("~/.local/bin/notifyVolume.sh"))
+    -- hl.dispatch(hl.dsp.exec_cmd("~/.local/bin/notifyVolume.sh"))
+    notifyVolume()
   end,
   { locked = true, repeating = true }
 )
 hl.bind("XF86AudioMute", function()
   hl.dispatch(hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
-  hl.dispatch(hl.dsp.exec_cmd("~/.local/bin/notifyVolume.sh"))
+  -- hl.dispatch(hl.dsp.exec_cmd("~/.local/bin/notifyVolume.sh"))
+  notifyVolume()
   end,
   { locked = true, repeating = true }
 )

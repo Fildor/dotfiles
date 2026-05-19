@@ -5,11 +5,9 @@ function notifyVolume()
   fh:close()
 
   local count = 0
-  -- local tester = ""
   local cols = {}
   for word in volume_string:gmatch("%S+") do
     table.insert(cols, word)
-    -- tester = tester .. '|' .. word
     count = count + 1
   end
 
@@ -34,7 +32,5 @@ function notifyVolume()
   local cmd = 'dunstify -h string:x-dunst-stack-tag:volume \z
   -i audio-volume-' .. vol_sym .. '-symbolic \z
   "Volume" "' .. vol_desc .. '" ' .. vol_num
-  -- local cmd = 'dunstify -h string:x-dunst-stack-tag:volume \z
-  -- "Volume" "' .. tester .. '"'
-  hl.dispatch(hl.dsp.exec_cmd(cmd))
+  hl.dispatch(hl.dsp.exec_raw(cmd))
 end
