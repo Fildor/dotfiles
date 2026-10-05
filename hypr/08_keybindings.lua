@@ -1,7 +1,6 @@
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Meine persönlichen Bindings
--- TODO: scripte umstellen auf lua
 require ("notifications.time")
 hl.bind(mainMod .. " + T", notifyTime)
 require ("notifications.networks")
@@ -23,10 +22,10 @@ hl.bind(mainMod .. " + comma", hl.dsp.layout("consume"))
 hl.bind(mainMod .. " + period", hl.dsp.layout("expel"))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- Move focus with arrow keys
-hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + left", hl.dsp.layout("focus left"))
+hl.bind(mainMod .. " + right", hl.dsp.layout("focus right"))
+hl.bind(mainMod .. " + up", hl.dsp.layout("focus up"))
+hl.bind(mainMod .. " + down", hl.dsp.layout("focus down"))
 
 -- Workspaces
 for i = 1, 10 do
