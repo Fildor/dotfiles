@@ -9,6 +9,8 @@ require ("notifications.battery")
 hl.bind(mainMod .. " + B", notifyBattery)
 hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + F4", hl.dsp.exec_cmd(soundManager))
+hl.bind(mainMod .. " + F5", hl.dsp.exec_cmd(bluetoothManager))
 
 -- Example Bindings ...
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
