@@ -50,23 +50,20 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 -- Laptop multimedia keys for Volume and LCD brightness
 require("notifications.volume")
 hl.bind("XF86AudioRaiseVolume", function ()
-    hl.dispatch(hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'))
-    -- hl.dispatch(hl.dsp.exec_cmd("~/.local/bin/notifyVolume.sh"))
-    notifyVolume()
+    hl.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+')
+    hl.timer(notifyVolume, {timeout = 50, type = "oneshot"})
   end,
   { locked = true, repeating = true }
 )
 hl.bind("XF86AudioLowerVolume", function()
-    hl.dispatch(hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"))
-    -- hl.dispatch(hl.dsp.exec_cmd("~/.local/bin/notifyVolume.sh"))
-    notifyVolume()
+    hl.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
+    hl.timer(notifyVolume, {timeout=50, type = "oneshot"})
   end,
   { locked = true, repeating = true }
 )
 hl.bind("XF86AudioMute", function()
-  hl.dispatch(hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
-  -- hl.dispatch(hl.dsp.exec_cmd("~/.local/bin/notifyVolume.sh"))
-  notifyVolume()
+  hl.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
+  hl.timer(notifyVolume, {timeout=50, type = "oneshot"})
   end,
   { locked = true, repeating = true }
 )

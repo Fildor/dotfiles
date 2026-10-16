@@ -1,6 +1,6 @@
 function notifyVolume()
-  
   local fh = io.popen("wpctl get-volume @DEFAULT_AUDIO_SINK@")
+  if fh == nil then return end
   local volume_string = fh:read("*a")
   fh:close()
 
@@ -16,7 +16,7 @@ function notifyVolume()
   local volume_percent = cols[2] * 100
   local vol_desc = string.format("%3.0f%%", volume_percent)
   local vol_num = "-h int:value:" .. volume_percent
-  
+
   local vol_sym = "overamplified"
   if is_muted then
     vol_sym = "muted"
@@ -28,9 +28,9 @@ function notifyVolume()
   elseif volume_percent <= 100 then
     vol_sym = "high"
   end
-  
+
   local cmd = 'dunstify -h string:x-dunst-stack-tag:volume \z
   -i audio-volume-' .. vol_sym .. '-symbolic \z
   "Volume" "' .. vol_desc .. '" ' .. vol_num
-  hl.dispatch(hl.dsp.exec_raw(cmd))
+  hl.exec_cmd(cmd)
 end
